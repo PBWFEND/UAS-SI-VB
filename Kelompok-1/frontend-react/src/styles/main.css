@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #c6b7e2;
+  --secondary: #f4d9e7;
+  --accent: #a8c7e0;
+  --purple-dark: #6b5b95;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* --- ANIMASI KELOPAK --- */
+.petal {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.6;
+  font-size: 2.5rem;
+  pointer-events: none;
+  animation: floatFlower 15s infinite ease-in-out;
+}
+
+@keyframes floatFlower {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(40px, -60px) rotate(25deg); }
+  66% { transform: translate(-30px, 30px) rotate(-15deg); }
+}
+
+/* --- WRAPPER LOGIN (KUNCI TENGAH) --- */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* --- WRAPPER TASK PAGE (SIDEBAR) --- */
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  width: 95%;
+  max-width: 1100px;
+  padding: 40px 20px;
+}
+
+.side-widgets {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.widget-box {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  padding: 20px;
+  color: var(--purple-dark);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 35px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(107, 91, 149, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.app-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--purple-dark);
+  margin-bottom: 5px;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 25px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 20px;
+  border: 2px solid #f0edf7;
+  margin-bottom: 12px;
+  font-family: 'Quicksand', sans-serif;
+  background: white;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, var(--purple-dark), #8e7fb3);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Quicksand', sans-serif;
+  box-shadow: 0 8px 15px rgba(107, 91, 149, 0.2);
+}
+
+.main-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(107, 91, 149, 0.3);
+}
+
+.switch-text {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #8e8e8e;
+  font-weight: 500;
+}
+
+.switch-link {
+  color: var(--purple-dark);
+  cursor: pointer;
+  font-weight: 700;
+  margin-left: 5px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.switch-link:hover {
+  color: #8e7fb3;
+  letter-spacing: 0.5px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border-left: 5px solid var(--primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.delete-btn {
+  background: #fff0f0;
+  color: #ff7675;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .main-wrapper { flex-direction: column; align-items: center; }
+  .side-widgets { width: 100%; }
+}
+
+.search-input {
+  background: #fdfbff !important;
+  border: 1px solid #eee !important;
+  font-size: 13px;
+  padding: 10px 15px !important;
+  margin-bottom: 15px !important;
+  border-radius: 15px !important;
+}
+
+.loading-text {
+  font-size: 14px;
+  color: var(--purple-dark);
+  font-style: italic;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--secondary);
+  border-top: 2px solid var(--purple-dark);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
