@@ -58,7 +58,7 @@ src/
 ## 🔐 Authentication API
 
 ### 
-```json
+
 Register
 POST /api/auth/register
 {
