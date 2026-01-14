@@ -133,16 +133,3 @@ https://drive.google.com/drive/folders/1kLFpbEcSSHx--OqP6dccxNZkf7NJUnqZ
 
 ---
 
-## Akun Demo
-
-### Admin
-- intankartika@unsap.ac.id | admin123
-- admin@unsap.ac.id | admin123
-
-### Dosen
-- andre@unsap.ac.id | 123456
-- dosen@unsap.ac.id | 123
-
-### Mahasiswa
-- kikania@student.unsap.ac.id | 123456
-- syifa@student.unsap.ac.id | mhs123
