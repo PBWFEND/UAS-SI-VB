@@ -66,6 +66,7 @@ POST /api/auth/register
   "email": "yudi@gmail.com",
   "password": "123456"
 }
+
 Login
 POST /api/auth/login
 {
@@ -111,11 +112,10 @@ Menggunakan Prisma ORM dengan relasi:
 User (1) → Diary (Many)
 
 ## ▶️ Cara Menjalankan Project
-bash
-Copy code
 npm install
 npx prisma migrate dev
 npm run dev
+
 Server berjalan di:
 http://localhost:3000
 
