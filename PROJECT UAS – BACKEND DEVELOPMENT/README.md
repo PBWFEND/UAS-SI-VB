@@ -73,64 +73,56 @@ src/
 ## 🔐 Authentication API
 
 Register
+  POST /api/auth/register
 
-POST /api/auth/register
-
-{
-  "name": "Yudi",
-  "email": "yudi@gmail.com",
-  "password": "123456"
-}
+    {
+    "name": "Yudi",
+    "email": "yudi@gmail.com",
+    "password": "123456"
+    }
 
 Login
+  POST /api/auth/login
 
-POST /api/auth/login
-
-{
-  "email": "yudi@gmail.com",
-  "password": "123456"
-}
+  {
+    "email": "yudi@gmail.com",
+    "password": "123456"
+  }
 
 Response:
 
-{
-  "token": "JWT_TOKEN"
-}
+  {
+    "token": "JWT_TOKEN"
+  }
 
 ---
 
 ## 👤 User API
 
 Get Profile
-
-GET /api/users/profile
+  GET /api/users/profile
 
 Header:
-
-Authorization: Bearer JWT_TOKEN
+  Authorization: Bearer JWT_TOKEN
 
 ## 📓 Diary API (Protected)
 
 Get All Diary
-
-GET /api/diaries
+  GET /api/diaries
 
 Create Diary
+  POST /api/diaries
 
-POST /api/diaries
-
-{
-  "title": "Pemrograman Web",
-  "content": "Belajar Express dan Prisma"
-}
+  {
+    "title": "Pemrograman Web",
+    "content": "Belajar Express dan Prisma"
+  }
 
 Update Diary
-
-PUT /api/diaries/:id
+  PUT /api/diaries/:id
 
 Delete Diary
-
-DELETE /api/diaries/:id
+  DELETE /api/diaries/:id
 
 ---
 
