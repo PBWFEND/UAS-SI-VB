@@ -1,0 +1,344 @@
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* =========================
+   SKY BACKGROUND
+========================= */
+.sky-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #6fb1fc 0%,
+    #a1d9ff 40%,
+    #eaf6ff 100%
+  );
+  z-index: -10;
+  animation: skyShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes skyShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(10deg); }
+}
+
+/* =========================
+   CLOUDS
+========================= */
+.cloud {
+  position: fixed;
+  width: 180px;
+  height: 60px;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.85;
+  z-index: -5;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: white;
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  border-radius: 50%;
+}
+
+.cloud::before { left: 20px; }
+.cloud::after { right: 20px; }
+
+.cloud-1 {
+  top: 100px;
+  left: -300px;
+  animation: cloudMove 60s linear infinite;
+}
+
+.cloud-2 {
+  top: 200px;
+  left: -400px;
+  transform: scale(1.3);
+  animation: cloudMove 90s linear infinite;
+}
+
+.cloud-3 {
+  top: 320px;
+  left: -250px;
+  transform: scale(0.8);
+  animation: cloudMove 45s linear infinite;
+}
+
+@keyframes cloudMove {
+  from { transform: translateX(-300px); }
+  to { transform: translateX(120vw); }
+}
+
+/* =========================
+   PLANE
+========================= */
+.plane-wrapper {
+  position: fixed;
+  top: 180px;
+  left: -200px;
+  width: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.plane {
+  font-size: 42px;
+  animation: planeFly 12s ease-in-out infinite;
+}
+
+@keyframes planeFly {
+  0% {
+    transform: translateX(-200px) translateY(40px) rotate(12deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  30% {
+    transform: translateX(30vw) translateY(-40px) rotate(4deg);
+  }
+  60% {
+    transform: translateX(70vw) translateY(-20px) rotate(-2deg);
+  }
+  85% {
+    transform: translateX(95vw) translateY(30px) rotate(-8deg);
+  }
+  100% {
+    transform: translateX(120vw) translateY(50px) rotate(-12deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   DASHBOARD CONTAINER
+========================= */
+.dashboard-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* =========================
+   HEADER
+========================= */
+.dashboard-header {
+  height: 64px;
+  padding: 0 24px;
+  background: rgba(74,144,226,0.95);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* =========================
+   PROFILE
+========================= */
+.profile-area {
+  position: relative;
+}
+
+.profile-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #4a90e2;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 220px;
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  color: #333;
+}
+
+.profile-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #4a90e2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.profile-card strong { color: #111; }
+.profile-card p { font-size: 13px; color: #555; }
+.profile-card small { font-size: 12px; color: #777; }
+
+.logout-btn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #e74c3c;
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   MAIN
+========================= */
+.dashboard-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* =========================
+   FLIGHTS (GLASS)
+========================= */
+.flights-section {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+.add-btn {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.flight-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.flight-card {
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.45);
+  transition: .3s;
+}
+
+.flight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.2);
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+}
+
+.card-actions button:first-child { background: #f1c40f; }
+.card-actions button:last-child {
+  background: #e74c3c;
+  color: white;
+}
+
+/* =========================
+   RIGHT PANEL (GLASS)
+========================= */
+.calendar-section {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.45);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.clock-box,
+.weather-box {
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.5);
+  transition: .3s;
+}
+
+.clock-box:hover,
+.weather-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   FORM OVERLAY
+========================= */
+.flight-form-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  .dashboard-main {
+    grid-template-columns: 1fr;
+  }
+}
