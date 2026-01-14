@@ -1,0 +1,17 @@
+/* Menghapus pembatas lebar agar aplikasi bisa Full Screen */
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: flex-start;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f9fafb; /* Warna abu terang untuk background luar */
+}
