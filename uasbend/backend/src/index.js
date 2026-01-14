@@ -15,6 +15,13 @@ const app = express(); // ⚠️ APP HARUS DIBUAT DI SINI
 // ================= MIDDLEWARE =================
 app.use(cors());
 app.use(express.json());
+const cors = require("cors");
+
+app.use(cors({
+  origin: "*",
+  credentials: true
+}));
+
 
 // ================= ROUTES =================
 app.use("/api/auth", authRoutes);
