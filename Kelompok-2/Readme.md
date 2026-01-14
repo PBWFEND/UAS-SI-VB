@@ -2,7 +2,7 @@
 
 ## Gambaran Umum
 
-Sistem Absensi Digital Perkuliahan adalah aplikasi berbasis web untuk pengelolaan kehadiran mahasiswa secara digital.
+Sistem Absensi Digital Perkuliahan adalah aplikasi berbasis web untuk pengelolaan kehadiran mahasiswa secara digital.  
 
 Tujuan pengembangan sistem:
 - Menggantikan absensi manual
@@ -119,8 +119,12 @@ https://drive.google.com/drive/folders/1kLFpbEcSSHx--OqP6dccxNZkf7NJUnqZ
 
 ---
 
-## 👥 Kontribusi Anggota Kelompok
-
+## 👥 Anggota Kelompok dan Kontribusi  
+- 230660221018    Intan Kartika
+- 230660221094    Kikania Zahra
+- 230660221030    Syifa Nur Insani
+- 230660221113    Muhammad Andre Nugraha
+  
 | No | Nama | Peran | Kontribusi |
 |----|-----------------------------------------------|----------------------|--------------------------------------------------------------|
 | 1 | Intan Kartika | Backend Engineer | Struktur project dan setup Express.js |
