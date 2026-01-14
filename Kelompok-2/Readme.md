@@ -111,8 +111,8 @@ Keamanan:
 
 Dokumentasi mencakup:
 - Implementasi sistem
-- ERD
 - Tampilan aplikasi
+- Endpoint API REGISTER & LOGIN
 
 Link:
 https://drive.google.com/drive/folders/1kLFpbEcSSHx--OqP6dccxNZkf7NJUnqZ
