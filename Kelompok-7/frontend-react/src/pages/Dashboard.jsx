@@ -51,13 +51,14 @@ const Dashboard = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/api/transaksi/${editData.id}`,
-        tipe: editData.tipe, kategori: editData.kategori, jumlah: parseInt(editData.jumlah), catatan: editData.catatan
-      }, { headers: { Authorization: `Bearer ${token}` } });
-
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/transaksi/${editData.id}`,
+        { tipe: editData.tipe, kategori: editData.kategori, jumlah: parseInt(editData.jumlah), catatan: editData.catatan },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
       setShowModal(false);
       window.location.reload();
     } catch (err) { console.error(err); }
+    
   };
 
   const handleHapus = async (id) => {
