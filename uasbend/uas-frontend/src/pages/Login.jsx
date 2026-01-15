@@ -47,10 +47,6 @@ export default function Login() {
 
           <button type="submit">Login</button>
         </form>
-
-        <p>
-          Belum punya akun? <Link to="/register">Register</Link>
-        </p>
       </div>
     </div>
   );
