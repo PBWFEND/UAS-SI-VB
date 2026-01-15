@@ -1,47 +1,55 @@
-/* Container form agar di tengah */
+/* =========================
+   FORM CONTAINER (TENGAH, TANPA OVERLAY)
+========================= */
 .flight-form-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.3); /* overlay gelap tipis */
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent; /* ❌ tidak ada abu-abu */
   z-index: 1000;
 }
 
-/* Form itu sendiri */
+/* =========================
+   FORM BOX
+========================= */
 .flight-form {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  width: 90%;
+  gap: 14px;
+  animation: fadeSlide 0.3s ease-out;
 }
 
+/* =========================
+   TITLE
+========================= */
 .flight-form h3 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: #333;
 }
 
+/* =========================
+   LABEL & INPUT
+========================= */
 .flight-form label {
   display: flex;
   flex-direction: column;
+  font-size: 14px;
   font-weight: 500;
   color: #555;
 }
 
 .flight-form input {
-  margin-top: 5px;
-  padding: 8px 12px;
-  border-radius: 6px;
+  margin-top: 6px;
+  padding: 9px 12px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 14px;
 }
@@ -49,24 +57,26 @@
 .flight-form input:focus {
   outline: none;
   border-color: #1e90ff;
-  box-shadow: 0 0 5px rgba(30,144,255,0.3);
+  box-shadow: 0 0 0 2px rgba(30,144,255,0.2);
 }
 
+/* =========================
+   BUTTONS
+========================= */
 .form-actions {
   display: flex;
-  justify-content: space-between;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .save-btn {
   flex: 1;
   background-color: #1e90ff;
-  color: #fff;
+  color: white;
   border: none;
-  padding: 10px 0;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .save-btn:hover {
@@ -78,42 +88,25 @@
   background-color: #f0f0f0;
   color: #333;
   border: none;
-  padding: 10px 0;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .cancel-btn:hover {
   background-color: #e0e0e0;
 }
 
-/* Animasi popup */
+/* =========================
+   ANIMATION
+========================= */
 @keyframes fadeSlide {
-  0% {
+  from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-16px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-popup {
-  animation: fadeSlide 0.3s ease-out;
-}
-
-/* Container form tengah layar */
-.flight-form-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
 }
