@@ -12,9 +12,10 @@ app.use(express.json());
 
 // Konfigurasi CORS yang lebih fleksibel untuk Vercel
 app.use(cors({
-  origin: ['*', 'https://uas-si-vb-83km.vercel.app'], // Ganti dengan domain Vercel Anda
+  origin: 'https://uas-si-vb-83km.vercel.app', // Hanya izinkan domain Vercel spesifik
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 app.options('*', cors());
