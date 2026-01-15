@@ -14,27 +14,68 @@ export default function FlightForm({ onSubmit, initialData, onCancel }) {
   };
 
   return (
-    <form className="flight-form animate-popup" onSubmit={handleSubmit}>
-      <h3>{initialData?.id ? "Edit Penerbangan" : "Tambah Penerbangan"}</h3>
-      <label>Nomor Penerbangan
-        <input value={flightNumber} onChange={e => setFlightNumber(e.target.value)} />
-      </label>
-      <label>Bandara Asal
-        <input value={origin} onChange={e => setOrigin(e.target.value)} />
-      </label>
-      <label>Bandara Tujuan
-        <input value={destination} onChange={e => setDestination(e.target.value)} />
-      </label>
-      <label>Tanggal
-        <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-      </label>
-      <label>Waktu
-        <input type="time" value={time} onChange={e => setTime(e.target.value)} />
-      </label>
-      <div className="form-actions">
-        <button type="submit" className="save-btn">Simpan</button>
-        <button type="button" className="cancel-btn" onClick={onCancel}>Batal</button>
+    <div className="modal-overlay">
+      <div className="modal-box animate-popup">
+        <form className="flight-form" onSubmit={handleSubmit}>
+          <h3>{initialData?.id ? "Edit Penerbangan" : "Tambah Penerbangan"}</h3>
+
+          <label>
+            Nomor Penerbangan
+            <input
+              value={flightNumber}
+              onChange={(e) => setFlightNumber(e.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            Bandara Asal
+            <input
+              value={origin}
+              onChange={(e) => setOrigin(e.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            Bandara Tujuan
+            <input
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            Tanggal
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            Waktu
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              required
+            />
+          </label>
+
+          <div className="form-actions">
+            <button type="submit" className="save-btn">
+              Simpan
+            </button>
+            <button type="button" className="cancel-btn" onClick={onCancel}>
+              Batal
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 }
