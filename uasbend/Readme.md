@@ -114,7 +114,7 @@ Talitha Ardelia Ivana (23066022114) Frontend	CRUD Flight, validasi, integrasi fr
 Aisyah Triwulandari (230660221084) DevOps/Deployment & Dokumentasi (README + API Docs + ERD)
 Seluruh anggota memahami keseluruhan sistem dan berkontribusi aktif dalam pengembangan.
 
-Catatan
+# Catatan
 
 Backend menggunakan Express.js
 
@@ -126,7 +126,10 @@ Password di-hash menggunakan bcrypt
 
 Validasi input menggunakan express-validator
 
+Sebelum melakukan login di link apliaksi, pastikan untuk refresh terlebih dahulu
+
 # Link Deployment 
+https://uasbackend.netlify.app
 
 User :
 1. admin@flight.com : password123
