@@ -12,7 +12,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/auth/register', { nama, email, password });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, { nama, email, password });
       alert('Pendaftaran Berhasil! Silakan Login.');
       navigate('/login');
     } catch (err) {
