@@ -10,8 +10,8 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
   font-family: "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -32,7 +32,7 @@ html, body {
 
 @keyframes skyShift {
   0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(10deg); }
+  100% { filter: hue-rotate(8deg); }
 }
 
 /* =========================
@@ -69,14 +69,14 @@ html, body {
 }
 
 .cloud-2 {
-  top: 200px;
+  top: 220px;
   left: -400px;
-  transform: scale(1.3);
+  transform: scale(1.2);
   animation: cloudMove 90s linear infinite;
 }
 
 .cloud-3 {
-  top: 320px;
+  top: 340px;
   left: -250px;
   transform: scale(0.8);
   animation: cloudMove 45s linear infinite;
@@ -85,44 +85,6 @@ html, body {
 @keyframes cloudMove {
   from { transform: translateX(-300px); }
   to { transform: translateX(120vw); }
-}
-
-/* =========================
-   PLANE
-========================= */
-.plane-wrapper {
-  position: fixed;
-  top: 180px;
-  left: -200px;
-  width: 100%;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.plane {
-  font-size: 42px;
-  animation: planeFly 12s ease-in-out infinite;
-}
-
-@keyframes planeFly {
-  0% {
-    transform: translateX(-200px) translateY(40px) rotate(12deg);
-    opacity: 0;
-  }
-  10% { opacity: 1; }
-  30% {
-    transform: translateX(30vw) translateY(-40px) rotate(4deg);
-  }
-  60% {
-    transform: translateX(70vw) translateY(-20px) rotate(-2deg);
-  }
-  85% {
-    transform: translateX(95vw) translateY(30px) rotate(-8deg);
-  }
-  100% {
-    transform: translateX(120vw) translateY(50px) rotate(-12deg);
-    opacity: 0;
-  }
 }
 
 /* =========================
@@ -144,11 +106,9 @@ html, body {
   padding: 0 24px;
   background: rgba(74,144,226,0.95);
   color: white;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   position: sticky;
   top: 0;
   z-index: 100;
@@ -178,17 +138,18 @@ html, body {
   right: 0;
   width: 220px;
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   color: #333;
+  z-index: 200;
 }
 
 .profile-card {
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .avatar {
@@ -203,10 +164,6 @@ html, body {
   font-weight: bold;
 }
 
-.profile-card strong { color: #111; }
-.profile-card p { font-size: 13px; color: #555; }
-.profile-card small { font-size: 12px; color: #777; }
-
 .logout-btn {
   width: 100%;
   padding: 8px;
@@ -218,7 +175,7 @@ html, body {
 }
 
 /* =========================
-   MAIN
+   MAIN LAYOUT
 ========================= */
 .dashboard-main {
   flex: 1;
@@ -229,7 +186,7 @@ html, body {
 }
 
 /* =========================
-   FLIGHTS (GLASS)
+   FLIGHT SECTION
 ========================= */
 .flights-section {
   background: rgba(255,255,255,0.25);
@@ -269,6 +226,10 @@ html, body {
   box-shadow: 0 12px 24px rgba(0,0,0,.2);
 }
 
+.flight-card.warning {
+  border: 2px solid #e74c3c;
+}
+
 .card-actions {
   display: flex;
   gap: 8px;
@@ -280,16 +241,20 @@ html, body {
   padding: 6px;
   border-radius: 6px;
   border: none;
+  cursor: pointer;
 }
 
-.card-actions button:first-child { background: #f1c40f; }
+.card-actions button:first-child {
+  background: #f1c40f;
+}
+
 .card-actions button:last-child {
   background: #e74c3c;
   color: white;
 }
 
 /* =========================
-   RIGHT PANEL (GLASS)
+   RIGHT PANEL
 ========================= */
 .calendar-section {
   background: rgba(255,255,255,0.25);
@@ -297,7 +262,6 @@ html, body {
   border-radius: 18px;
   padding: 16px;
   border: 1px solid rgba(255,255,255,0.45);
-
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -311,19 +275,12 @@ html, body {
   padding: 14px;
   text-align: center;
   border: 1px solid rgba(255,255,255,0.5);
-  transition: .3s;
-}
-
-.clock-box:hover,
-.weather-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
 /* =========================
-   FORM OVERLAY
+   MODAL (FORM POPUP)
 ========================= */
-.flight-form-container {
+.modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.35);
@@ -331,7 +288,28 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 9999;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  animation: scaleFade .3s ease;
+}
+
+@keyframes scaleFade {
+  from {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* =========================
@@ -342,3 +320,4 @@ html, body {
     grid-template-columns: 1fr;
   }
 }
+ 
