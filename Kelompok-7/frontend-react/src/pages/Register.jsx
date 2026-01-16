@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
+const apiUrl = import.meta.env.VITE_API_URL || '';
+
 const Register = () => {
   const [nama, setNama] = useState('');
   const [email, setEmail] = useState('');
@@ -12,7 +14,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/api/auth/register`, { nama, email, password });
+      await axios.post(`${apiUrl}/api/auth/register`, { nama, email, password });
       alert('Pendaftaran Berhasil! Silakan Login.');
       navigate('/login');
     } catch (err) {
