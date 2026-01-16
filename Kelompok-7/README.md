@@ -27,7 +27,7 @@ Sesuai dengan studi kasus manajemen keuangan, aplikasi ini mencakup:
     * Mencatat Pengeluaran.
     * Mengubah data transaksi.
     * Menghapus data transaksi.
-4.  **Riwayat Keuangan**: Daftar detail transaksi yang telah dilakukan oleh pengguna.
+4.  **Riwayat Keuangan**: Daftar detail transaksi yang telah dilakukan oleh pengguna
 
 ---
 
@@ -49,7 +49,7 @@ Jika ingin menjalankan proyek ini di komputer lokal:
 
 1.  **Clone Repository:**
     ```bash
-    git clone [https://github.com/deynaangelyzahara/UAS-SI-VB.git](https://github.com/deynaangelyzahara/UAS-SI-VB.git)
+    git clone [https://github.com/deynaangelyzahara/UAS-SI-VB.git]
     ```
 
 2.  **Konfigurasi Backend:**
