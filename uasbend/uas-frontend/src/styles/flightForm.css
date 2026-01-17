@@ -1,0 +1,112 @@
+/* =========================
+   FORM CONTAINER (TENGAH, TANPA OVERLAY)
+========================= */
+.flight-form-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; /* ❌ tidak ada abu-abu */
+  z-index: 1000;
+}
+
+/* =========================
+   FORM BOX
+========================= */
+.flight-form {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeSlide 0.3s ease-out;
+}
+
+/* =========================
+   TITLE
+========================= */
+.flight-form h3 {
+  text-align: center;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* =========================
+   LABEL & INPUT
+========================= */
+.flight-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.flight-form input {
+  margin-top: 6px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.flight-form input:focus {
+  outline: none;
+  border-color: #1e90ff;
+  box-shadow: 0 0 0 2px rgba(30,144,255,0.2);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn {
+  flex: 1;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #0b6ed3;
+}
+
+.cancel-btn {
+  flex: 1;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
