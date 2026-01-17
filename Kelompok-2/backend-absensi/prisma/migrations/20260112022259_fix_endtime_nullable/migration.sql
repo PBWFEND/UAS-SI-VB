@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `absencesession` MODIFY `startTime` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    MODIFY `endTime` DATETIME(3) NULL;

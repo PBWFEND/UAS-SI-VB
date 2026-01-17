@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  name     String
+  email    String  @unique
+  password String
+  role     Role
+  npm      String? @unique
+
+  // RELASI
+  coursesDosen Course[]         @relation("DosenCourses")
+  sessions     AbsenceSession[]
+  attendance   Attendance[]
+  enrollments  Enrollment[]
+}
+
+model Course {
+  id   Int    @id @default(autoincrement())
+  code String @unique
+  name String
+
+  dosenId Int
+  dosen   User @relation("DosenCourses", fields: [dosenId], references: [id])
+
+  sessions AbsenceSession[]
+  enrollments  Enrollment[]
+}
+
+model AbsenceSession {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  isOpen    Boolean  @default(true)
+  startTime DateTime
+  endTime   DateTime
+
+  teacherId Int
+  teacher   User @relation(fields: [teacherId], references: [id])
+
+  courseId Int
+  course   Course @relation(fields: [courseId], references: [id])
+
+  attendance Attendance[]
+}
+
+model Attendance {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  sessionId Int
+  createdAt DateTime @default(now())
+
+  user    User           @relation(fields: [userId], references: [id])
+  session AbsenceSession @relation(fields: [sessionId], references: [id])
+
+  @@unique([userId, sessionId])
+}
+
+model Enrollment {
+  id        Int @id @default(autoincrement())
+  userId    Int
+  courseId  Int
+
+  user      User   @relation(fields: [userId], references: [id])
+  course    Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+
+enum Role {
+  ADMIN
+  DOSEN
+  MAHASISWA
+}
