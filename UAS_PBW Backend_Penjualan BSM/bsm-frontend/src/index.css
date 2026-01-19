@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-bsm-bg text-white min-h-screen;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.app-shell {
+  @apply min-h-screen flex flex-col;
+}
+
+.main-container {
+  @apply flex-1 max-w-6xl mx-auto w-full px-4 py-6;
+}
