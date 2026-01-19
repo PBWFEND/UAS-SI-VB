@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  nama     String
+  username String  @unique
+  password String
+  role     Role
+  alamat   String?
+  no_hp    String?
+  tdc      Tdc[]
+  tmc      Tmc[]
+
+  @@map("user")
+}
+
+model Produk {
+  id_produk        Int               @id @default(autoincrement())
+  nama_produk      String
+  jenis            String
+  satuan           String
+  stok             Int
+  harga            Int
+  img              String?
+  detail_penjualan DetailPenjualan[]
+
+  @@map("product")
+}
+
+model Tmc {
+  id_tmc            Int               @id @default(autoincrement())
+  id_konsumen       Int
+  id_karyawan       Int?
+  id_admin          Int?
+  tanggal           DateTime
+  total_harga       Int
+  biaya_ongkir      Int
+  metode_pengiriman String
+  status_pembayaran String
+  status_pengiriman String
+  nomor_invoice     String            @unique
+  nomor_resi        String?
+  status_arsip      String
+  bukti_pembayaran  String?
+  detail_penjualan  DetailPenjualan[]
+  konsumen          User              @relation(fields: [id_konsumen], references: [id])
+
+  @@index([id_konsumen], map: "tmc_id_konsumen_fkey")
+  @@map("tmc")
+}
+
+model Tdc {
+  id_tdc            Int      @id @default(autoincrement())
+  id_konsumen       Int
+  id_karyawan       Int?
+  id_admin          Int?
+  tanggal           DateTime
+  total_harga       Int
+  biaya_ongkir      Int
+  metode_pengiriman String
+  status_pembayaran String
+  status_pengiriman String
+  nomor_invoice     String   @unique
+  nomor_resi        String?
+  status_arsip      String
+  bukti_pembayaran  String?
+  konsumen          User     @relation(fields: [id_konsumen], references: [id])
+
+  @@index([id_konsumen], map: "tdc_id_konsumen_fkey")
+  @@map("tdc")
+}
+
+model DetailPenjualan {
+  id_detail    Int    @id @default(autoincrement())
+  id_tmc       Int
+  id_produk    Int
+  qty          Int
+  harga_satuan Int
+  subtotal     Int
+  produk       Produk @relation(fields: [id_produk], references: [id_produk])
+  tmc          Tmc    @relation(fields: [id_tmc], references: [id_tmc])
+
+  @@index([id_produk], map: "detail_penjualan_id_produk_fkey")
+  @@index([id_tmc], map: "detail_penjualan_id_tmc_fkey")
+  @@map("detail_penjualan")
+}
+
+enum Role {
+  KONSUMEN
+  ADMIN
+  KARYAWAN
+  OWNER
+}
